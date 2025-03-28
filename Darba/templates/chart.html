@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Grafiks{% endblock %}
+
+{% block content %}
+<h1>
+    Filmu vērtējums pēc žanra</h1>
+<img src="{{ url_for('static', filename='chart.png') }}" alt="Vērtējumu diagramma">
+{% endblock %}

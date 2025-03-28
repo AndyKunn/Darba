@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Filmu saraksts{% endblock %}
+
+{% block content %}
+<h1>Filmu saraksts</h1>
+
+<form action="{{ url_for('upload_csv') }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Augšupielādējiet CSV</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>
+         Nosaukums</th>
+        <th>gads</th>
+        <th>Žanrs</th>
+        <th>Vērtējums</th>
+    </tr>
+    {% for film in films %}
+    <tr>
+        <td>{{ film.title }}</td>
+        <td>{{ film.year }}</td>
+        <td>{{ film.genre }}</td>
+        <td>{{ film.rating }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
